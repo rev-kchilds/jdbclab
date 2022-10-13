@@ -63,19 +63,63 @@ public class UserRepoImplementation implements UserRepository{
 
     @Override
     public User getOneUserGivenId(int id) {
-        // TODO Auto-generated method stub
-        return null;
+        User user = null;
+
+        try {
+            Connection connection = ConnectionUtil.getConnection();
+
+            String sql = "select * from users where id = ?;";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 
     @Override
     public boolean updateUser(User user) {
-        // TODO Auto-generated method stub
+        try {
+            Connection connection = ConnectionUtil.getConnection();
+
+            String sql = "update users set username = ?, password = ? where id = ?";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getPassword());
+            ps.setInt(3, user.getId());
+
+            return ps.executeUpdate() != 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 
     @Override
     public boolean deleteUserGivenId(int id) {
-        // TODO Auto-generated method stub
+        try {
+            Connection connection = ConnectionUtil.getConnection();
+
+            String sql = "delete from users where id = ?";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            return ps.executeUpdate() != 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return false;
     }
     

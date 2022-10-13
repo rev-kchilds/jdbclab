@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.util.Objects;
+
 /**
  * Class to represent a user account
  */
@@ -47,6 +49,25 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof User)) {
+            return false;
+        }
+        User user = (User) o;
+        return id == user.id && Objects.equals(username, user.username) && Objects.equals(password, user.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, password);
+    }
+
 
     @Override
     public String toString() {
