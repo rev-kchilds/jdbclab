@@ -1,0 +1,14 @@
+2022-10-13 10:50:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" already exists; SQL statement:
+create table users(
+id serial primary key,
+username varchar(50) unique not null,
+password varchar(50) not null
+) [42101-214]
+2022-10-13 10:51:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" already exists; SQL statement:
+create table users(
+id serial primary key,
+username varchar(50) unique not null,
+password varchar(50) not null
+) [42101-214]
