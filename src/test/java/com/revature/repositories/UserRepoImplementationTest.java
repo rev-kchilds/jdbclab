@@ -29,36 +29,6 @@ public class UserRepoImplementationTest {
     }
 
     @Test
-    void testCreateUser() {
-        //arrange
-        User user = new User("revuser123", "pass123");
-        User expectedUser = new User(1,"revuser123", "pass123");
-
-
-        //act
-        boolean actualResult = userRepository.createUser(user);
-        User actualUser = userRepository.getOneUserGivenId(1);
-
-        //assert
-        assertTrue(actualResult);
-        assertEquals(expectedUser, actualUser);
-
-    }
-
-    @Test
-    void testDeleteUserGivenId() {
-        //arrange
-        User user = new User("revuser123", "pass123");
-        userRepository.createUser(user);
-
-        //act
-        boolean actualResult = userRepository.deleteUserGivenId(1);
-
-        //assert
-        assertTrue(actualResult);
-    }
-
-    @Test
     void testGetAllUsers() {
         //arrange
         User user1 = new User("revuser1", "pass123");
@@ -99,6 +69,23 @@ public class UserRepoImplementationTest {
     }
 
     @Test
+    void testCreateUser() {
+        //arrange
+        User user = new User("revuser123", "pass123");
+        User expectedUser = new User(1,"revuser123", "pass123");
+
+
+        //act
+        boolean actualResult = userRepository.createUser(user);
+        User actualUser = userRepository.getOneUserGivenId(1);
+
+        //assert
+        assertTrue(actualResult);
+        assertEquals(expectedUser, actualUser);
+
+    }
+
+    @Test
     void testUpdateUser() {
         //arrange
         User user = new User("revuser1", "pass1");
@@ -112,5 +99,18 @@ public class UserRepoImplementationTest {
         //assert
         assertTrue(actualResult);
         assertEquals(expectedResult, updatedUser);
+    }
+
+    @Test
+    void testDeleteUserGivenId() {
+        //arrange
+        User user = new User("revuser123", "pass123");
+        userRepository.createUser(user);
+
+        //act
+        boolean actualResult = userRepository.deleteUserGivenId(1);
+
+        //assert
+        assertTrue(actualResult);
     }
 }

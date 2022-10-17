@@ -1,14 +1,10 @@
 package com.revature.repositories;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.models.User;
-import com.revature.util.ConnectionUtil;
 
 /* This is the class you will need to implement 
  * 
@@ -17,17 +13,6 @@ import com.revature.util.ConnectionUtil;
 */
 public class UserRepoImplementation implements UserRepository{
 
-    @Override
-    public boolean createUser(User user) {
-        try {
-            /* remove line below and implement JDBC logic here */
-            throw new SQLException("method not implemented");
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
 
     @Override
     public List<User> getAllUsers() {
@@ -56,6 +41,18 @@ public class UserRepoImplementation implements UserRepository{
             e.printStackTrace();
         }
         return user;
+    }
+
+    @Override
+    public boolean createUser(User user) {
+        try {
+            /* remove line below and implement JDBC logic here */
+            throw new SQLException("method not implemented");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
