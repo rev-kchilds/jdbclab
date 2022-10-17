@@ -12,25 +12,17 @@ import com.revature.util.ConnectionUtil;
 
 /* This is the class you will need to implement 
  * 
- * The database that is setup for this demo is H2 database which is an in memory database. 
+ * The database that is setup for this demo is H2 database which is an in memory database. To access this database, instead of using DriverManager.getConnection(url,username,password); we will want to use the method predefined in the ConnectionUtil class.
+ * 
 */
 public class UserRepoImplementation implements UserRepository{
 
     @Override
     public boolean createUser(User user) {
         try {
-            Connection connection = ConnectionUtil.getConnection();
-
-            String sql = "insert into users (username, password) values (?, ?);";
-
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, user.getUsername());
-            ps.setString(2, user.getPassword());
-
-            return ps.executeUpdate() != 0;
+            /* Implement JDBC logic here */
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return false;
@@ -42,20 +34,9 @@ public class UserRepoImplementation implements UserRepository{
         List<User> users = new ArrayList<>();
 
         try {
-            Connection connection = ConnectionUtil.getConnection();
-
-            String sql = "select * from users;";
-
-            PreparedStatement ps = connection.prepareStatement(sql);
-
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()){
-                users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3)));
-            }
+            /* Implement JDBC logic here */
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return users;
@@ -66,18 +47,7 @@ public class UserRepoImplementation implements UserRepository{
         User user = null;
 
         try {
-            Connection connection = ConnectionUtil.getConnection();
-
-            String sql = "select * from users where id = ?;";
-
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, id);
-
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()){
-                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3));
-            }
+            /* Implement JDBC logic here */
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,16 +58,7 @@ public class UserRepoImplementation implements UserRepository{
     @Override
     public boolean updateUser(User user) {
         try {
-            Connection connection = ConnectionUtil.getConnection();
-
-            String sql = "update users set username = ?, password = ? where id = ?";
-
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, user.getUsername());
-            ps.setString(2, user.getPassword());
-            ps.setInt(3, user.getId());
-
-            return ps.executeUpdate() != 0;
+            /* Implement JDBC logic here */
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -108,14 +69,7 @@ public class UserRepoImplementation implements UserRepository{
     @Override
     public boolean deleteUserGivenId(int id) {
         try {
-            Connection connection = ConnectionUtil.getConnection();
-
-            String sql = "delete from users where id = ?";
-
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, id);
-
-            return ps.executeUpdate() != 0;
+            /* Implement JDBC logic here */
 
         } catch (SQLException e) {
             e.printStackTrace();

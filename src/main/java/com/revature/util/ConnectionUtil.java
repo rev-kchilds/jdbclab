@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/* Singleton Design Pattern */
 public class ConnectionUtil {
     private static Connection connection = null;
 
