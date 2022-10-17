@@ -20,7 +20,8 @@ public class UserRepoImplementation implements UserRepository{
     @Override
     public boolean createUser(User user) {
         try {
-            /* Implement JDBC logic here */
+            /* remove line below and implement JDBC logic here */
+            throw new SQLException("method not implemented");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -34,7 +35,8 @@ public class UserRepoImplementation implements UserRepository{
         List<User> users = new ArrayList<>();
 
         try {
-            /* Implement JDBC logic here */
+            /* remove line below and implement JDBC logic here */
+            throw new SQLException("method not implemented");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -47,7 +49,8 @@ public class UserRepoImplementation implements UserRepository{
         User user = null;
 
         try {
-            /* Implement JDBC logic here */
+            /* remove line below and implement JDBC logic here */
+            throw new SQLException("method not implemented");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -58,7 +61,8 @@ public class UserRepoImplementation implements UserRepository{
     @Override
     public boolean updateUser(User user) {
         try {
-            /* Implement JDBC logic here */
+            /* remove line below and implement JDBC logic here */
+            throw new SQLException("method not implemented");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -69,7 +73,8 @@ public class UserRepoImplementation implements UserRepository{
     @Override
     public boolean deleteUserGivenId(int id) {
         try {
-            /* Implement JDBC logic here */
+            /* remove line below and implement JDBC logic here */
+            throw new SQLException("method not implemented");
 
         } catch (SQLException e) {
             e.printStackTrace();
