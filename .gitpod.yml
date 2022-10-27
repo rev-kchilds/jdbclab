@@ -1,3 +1,7 @@
-vscode:
-  extensions:
-    - vscjava.vscode-java-pack
+tasks:
+  - name: Install Extensions
+    command: code --install-extension vscjava.vscode-java-pack
+
+# vscode:
+#   extensions:
+#     - vscjava.vscode-java-pack
