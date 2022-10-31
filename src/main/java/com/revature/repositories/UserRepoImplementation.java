@@ -1,10 +1,14 @@
 package com.revature.repositories;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.models.User;
+import com.revature.util.ConnectionUtil;
 
 /* This is the class you will need to implement 
  * 
@@ -20,8 +24,18 @@ public class UserRepoImplementation implements UserRepository{
         List<User> users = new ArrayList<>();
 
         try {
-            /* remove line below and implement JDBC logic here */
-            throw new SQLException("method not implemented");
+            Connection connection = ConnectionUtil.getConnection();
+
+            //Write SQL logic here
+            String sql = "SELECT * from users";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3)));
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -34,8 +48,19 @@ public class UserRepoImplementation implements UserRepository{
         User user = null;
 
         try {
-            /* remove line below and implement JDBC logic here */
-            throw new SQLException("method not implemented");
+            Connection connection = ConnectionUtil.getConnection();
+
+            //Write SQL logic here
+            String sql = "SELECT * from users WHERE id = ?";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1,id);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3));
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -46,8 +71,16 @@ public class UserRepoImplementation implements UserRepository{
     @Override
     public boolean createUser(User user) {
         try {
-            /* remove line below and implement JDBC logic here */
-            throw new SQLException("method not implemented");
+            Connection connection = ConnectionUtil.getConnection();
+
+            //Write SQL logic here
+            String sql = "INSERT INTO users (username,password) VALUES (?,?);";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1,user.getUsername());
+            ps.setString(2,user.getPassword());
+
+            return ps.executeUpdate() != 0;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -59,7 +92,14 @@ public class UserRepoImplementation implements UserRepository{
     public boolean updateUser(User user) {
         try {
             /* remove line below and implement JDBC logic here */
-            throw new SQLException("method not implemented");
+            Connection connection = ConnectionUtil.getConnection();
+
+            //Write SQL logic here
+            String sql = "CHANGE ME";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            return ps.executeUpdate() != 0;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -71,7 +111,15 @@ public class UserRepoImplementation implements UserRepository{
     public boolean deleteUserGivenId(int id) {
         try {
             /* remove line below and implement JDBC logic here */
-            throw new SQLException("method not implemented");
+            /* remove line below and implement JDBC logic here */
+            Connection connection = ConnectionUtil.getConnection();
+
+            //Write SQL logic here
+            String sql = "CHANGE ME";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            return ps.executeUpdate() != 0;
 
         } catch (SQLException e) {
             e.printStackTrace();
