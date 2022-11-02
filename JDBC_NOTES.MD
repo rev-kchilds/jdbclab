@@ -75,7 +75,7 @@ public List<User> getAllSongs() {
 ```
 
 
-Retrieving all records from table songs (DQL EXAMPLE):
+Inserting a Record into Table songs (DML EXAMPLE):
 ```java
 public void createSong(Song song) {
         try {
