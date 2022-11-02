@@ -1,4 +1,4 @@
-package com.revature.repositories;
+package com.revature.lab.repositories;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -11,8 +11,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.revature.models.User;
-import com.revature.util.H2Util;
+import com.revature.lab.models.User;
+import com.revature.lab.util.H2Util;
 
 public class UserRepoImplementationTest {
 

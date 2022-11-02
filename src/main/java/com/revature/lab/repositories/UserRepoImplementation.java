@@ -1,4 +1,4 @@
-package com.revature.repositories;
+package com.revature.lab.repositories;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.models.User;
-import com.revature.util.ConnectionUtil;
+import com.revature.lab.models.User;
+import com.revature.lab.util.ConnectionUtil;
+
 
 /* This is the class you will need to implement 
  * 

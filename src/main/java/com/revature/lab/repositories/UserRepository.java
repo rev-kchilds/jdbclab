@@ -1,8 +1,8 @@
-package com.revature.repositories;
+package com.revature.lab.repositories;
 
 import java.util.List;
 
-import com.revature.models.User;
+import com.revature.lab.models.User;
 
 /* 
  * We want to be able to do all CRUD operations to our database utilizing jdbc so in our interface we will define all of the methods need for CRUD

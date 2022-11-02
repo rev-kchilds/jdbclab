@@ -1,4 +1,4 @@
-package com.revature.util;
+package com.revature.lab.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class ConnectionUtil {
     private static Connection connection = null;
 
-    private static String url = "jdbc:h2:./h2/db";
+    private static String url = "jdbc:h2:./h2/lab/db";
     private static String username = "sa";
     private static String password = "sa";
 
