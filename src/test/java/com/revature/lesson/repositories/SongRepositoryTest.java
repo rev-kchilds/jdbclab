@@ -28,7 +28,7 @@ public class SongRepositoryTest {
     }
 
     @Test
-    void testGetAllUsers() {
+    void testGetAllSongs() {
         //arrange
         Song song1 = new Song("Let it be", "Beatles");
         Song song2 = new Song("Imagine", "Beatles");

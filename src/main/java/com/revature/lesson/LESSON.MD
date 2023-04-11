@@ -46,15 +46,15 @@ ResultSet rs = ps.executeQuery();
 
 Retrieving all records from table songs (DQL EXAMPLE):
 ```java
-public List<User> getAllSongs() {
+public List<User> getAllUsers() {
 
-        List<Song> songs = new ArrayList<>();
+        List<User> users = new ArrayList<>();
 
         try {
             //retrieve active connection to db
             Connection connection = DriverManager.getConnection(url,username, password);
  
-            String sql = "select * from songs;";
+            String sql = "select * from users;";
 
             //create precompiled sql statement
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -64,30 +64,30 @@ public List<User> getAllSongs() {
 
             //loop through each record and add record to user list object
             while(rs.next()){
-                songs.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3)));
+                users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3)));
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return songs;
+        return users;
     }
 ```
 
 
-Inserting a Record into Table songs (DML EXAMPLE):
+Inserting a Record into Table users (DML EXAMPLE):
 ```java
-public void createSong(Song song) {
+public void createUser(User user) {
         try {
             //retrieve active connection to db
             Connection connection = ConnectionUtil.getConnection();
 
-            String sql = "insert into songs (name, artist) values (?, ?);";
+            String sql = "INSERT INTO users (username, password) values (?, ?);";
 
             //create precompiled sql statement
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, user.getName());
-            ps.setString(2, user.getArtist());
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getPassword());
 
             //execute the statement to db
             ps.executeUpdate();
